@@ -1,6 +1,8 @@
 import express from "express";
 
 import userRouter from "./routers/userRouter.js";
+import notesRouter from "./routers/notesRouter.js";
+
 import AppError from "./utils/AppError.js";
 import cookieParser from "cookie-parser";
 
@@ -17,6 +19,7 @@ app.get("/api/v1", (req, res, next) => {
 });
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/notes", notesRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

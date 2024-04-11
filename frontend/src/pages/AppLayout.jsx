@@ -1,9 +1,7 @@
-import ChatComponent from "../components/ChatComponent";
+import { Outlet } from "react-router-dom";
 
 function AppLayout() {
-  return <div>
-    <ChatComponent />
-  </div>;
+  return <Outlet />;
 }
 
 export default AppLayout;
