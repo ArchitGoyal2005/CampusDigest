@@ -1,5 +1,9 @@
+import ChatComponent from "../components/ChatComponent";
+
 function AppLayout() {
-  return <div>Hii</div>;
+  return <div>
+    <ChatComponent />
+  </div>;
 }
 
 export default AppLayout;
