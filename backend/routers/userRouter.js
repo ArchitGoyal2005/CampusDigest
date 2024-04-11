@@ -1,15 +1,12 @@
 import express from "express";
-import { login, signup } from "../controllers/authController.js";
+import { login, protect, signup } from "../controllers/authController.js";
+import { getMe } from "../controllers/userController.js";
 
 const router = express.Router();
 
 router.post("/signup", signup);
 router.post("/login", login);
 
-router.get("/", (req, res, next) => {
-  return res.status(200).json({
-    status: "ok",
-  });
-});
+router.get("/me", protect, getMe);
 
 export default router;

@@ -2,12 +2,15 @@ import express from "express";
 
 import userRouter from "./routers/userRouter.js";
 import AppError from "./utils/AppError.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res, next) => {
+app.use(cookieParser());
+
+app.get("/api/v1", (req, res, next) => {
   return res.status(200).json({
     status: "ok",
   });
